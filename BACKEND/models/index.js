@@ -32,13 +32,14 @@ db.sequelize = sequelize;
 db.users = require("../models/user.model")(sequelize, DataTypes);
 db.category = require("../models/category.model")(sequelize, DataTypes);
 db.product = require("../models/product.model")(sequelize, DataTypes);
+db.bill = require("../models/bill.model")(sequelize, DataTypes);
 
 db.category.hasMany(db.product);
 db.product.belongsTo(db.category);
 
 db.sequelize
   .sync({
-    force: true,
+    alter: true,
   })
   .then(() => {
     console.log("yes re-sync done!");
