@@ -14,10 +14,12 @@ app.use(express.urlencoded({ extended: true }));
 const userRoutes = require("./routes/users.routes");
 const CategoryRoutes = require("./routes/category.routes");
 const ProductRoutes = require("./routes/product.routes");
+const BillingRoutes = require("./routes/bill.routes");
 
 app.use("/user", userRoutes);
 app.use("/category", CategoryRoutes);
 app.use("/product", ProductRoutes);
+app.use("./bill", BillingRoutes);
 
 app.get("/", (req, res) => {
   res.json({ message: "Hello APi" });
